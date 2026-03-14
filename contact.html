@@ -3,10 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact — Artur Kadykov | Web Designer & Developer Toronto</title>
-<meta name="description" content="Contact Artur Kadykov (Artur K) to start your custom website project. Free consultation, fast response. Based in Toronto, serving small businesses across Canada.">
-<meta name="keywords" content="contact Artur K, contact Artur Kadykov, hire web designer Toronto, hire web developer Canada, get a website quote Toronto, website quote Canada, free web design consultation Toronto">
-<meta name="robots" content="index, follow">
+<title>Contact — Artur K | Web Designer & Developer</title>
+<meta name="description" content="Get in touch with Artur K to start your website project. Free consultation, fast response.">
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <link rel="icon" type="image/jpeg" href="artur.jpg">
@@ -39,7 +37,7 @@
 </div>
 
 <section class="contact-section">
-  <div class="contact-left">
+  <div class="contact-left reveal">
     <span class="label">Reach Out</span>
     <h2>Ready to get<br><em>your site built?</em></h2>
     <p>Whether you already know what you want or you're just starting to think about it — I'm happy to help. No pressure, no sales pitch. Just a straight conversation about what makes sense for your business.</p>
@@ -49,7 +47,7 @@
         <div class="detail-icon">✉</div>
         <div class="detail-body">
           <span class="detail-label">Email</span>
-          <span class="detail-value" id="em-display"></span>
+          <span class="detail-value">arturkadykovr@gmail.com</span>
         </div>
       </div>
       <div class="contact-detail">
@@ -76,7 +74,7 @@
     </div>
   </div>
 
-  <div class="contact-form-wrap">
+  <div class="contact-form-wrap reveal">
     <div id="form-area">
       <h3 class="form-title">Send me a message</h3>
       <p class="form-sub">Fill out the form and I'll get back to you shortly.</p>
@@ -87,11 +85,11 @@
         2. Create a new form — it will give you a unique endpoint like:
            https://formspree.io/f/YOUR_FORM_ID
         3. Replace YOUR_FORM_ID in the action attribute below with your actual ID
-        4. Formspree will email submissions directly to you
+        4. Formspree will email you every submission directly to arturkadykovr@gmail.com
       -->
       <form
         id="contact-form"
-        action="https://formspree.io/f/YOUR_FORM_ID"
+        action="https://formspree.io/f/mreylaje"
         method="POST"
       >
         <div class="form-grid">
@@ -148,12 +146,6 @@
 </footer>
 
 <script>
-  // Rebuild email to dodge Cloudflare obfuscation
-  document.getElementById('em-display').textContent = 'arturkadykovr' + '@' + 'gmail.com';
-
-  // Force all reveal elements visible (bypass Cloudflare script delay)
-  document.querySelectorAll('.reveal').forEach(el => el.classList.add('in-view'));
-
   // Cursor
   const dot = document.querySelector('.cursor-dot');
   const ring = document.querySelector('.cursor-ring');
@@ -195,4 +187,14 @@
         formArea.style.display = 'none';
         successMsg.style.display = 'block';
       } else {
-        btn.textContent = 'Somet
+        btn.textContent = 'Something went wrong — try emailing directly.';
+        btn.disabled = false;
+      }
+    } catch {
+      btn.textContent = 'Network error — please email me directly.';
+      btn.disabled = false;
+    }
+  });
+</script>
+</body>
+</html>
