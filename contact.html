@@ -49,7 +49,7 @@
         <div class="detail-icon">✉</div>
         <div class="detail-body">
           <span class="detail-label">Email</span>
-          <span class="detail-value"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="a7c6d5d3d2d5ccc6c3deccc8d1d5e7c0cac6cecb89c4c8ca">[email&#160;protected]</a></span>
+          <span class="detail-value" id="em-display"></span>
         </div>
       </div>
       <div class="contact-detail">
@@ -87,7 +87,7 @@
         2. Create a new form — it will give you a unique endpoint like:
            https://formspree.io/f/YOUR_FORM_ID
         3. Replace YOUR_FORM_ID in the action attribute below with your actual ID
-        4. Formspree will email you every submission directly to arturkadykovr@gmail.com
+        4. Formspree will email submissions directly to you
       -->
       <form
         id="contact-form"
@@ -147,7 +147,10 @@
   <div class="footer-right">© 2026 Artur K. All rights reserved.</div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
+  // Rebuild email to dodge Cloudflare obfuscation
+  document.getElementById('em-display').textContent = 'arturkadykovr' + '@' + 'gmail.com';
+
   // Cursor
   const dot = document.querySelector('.cursor-dot');
   const ring = document.querySelector('.cursor-ring');
