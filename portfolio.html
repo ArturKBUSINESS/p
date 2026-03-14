@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio — Artur K | Web Designer & Developer</title>
+<meta name="description" content="Portfolio of Artur K — custom hand-coded websites for small businesses across Canada.">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" type="image/jpeg" href="artur.jpg">
+<style>
+  /* Portfolio-specific extras */
+  .portfolio-intro {
+    max-width: 560px; margin-bottom: 3.5rem;
+  }
+  .portfolio-intro h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2rem, 3vw, 3rem); font-weight: 400;
+    letter-spacing: -0.01em; margin: 1rem 0 1.2rem;
+  }
+  .portfolio-intro h2 em { font-style: italic; color: var(--accent); }
+  .portfolio-intro p { font-size: 0.95rem; line-height: 1.85; color: var(--muted); }
+
+  .project-card-single {
+    border: 1px solid var(--border); border-radius: var(--radius-lg);
+    overflow: hidden; background: #fff;
+    max-width: 680px;
+    opacity: 0; transform: translateY(16px);
+    transition: opacity 0.65s ease, transform 0.65s ease, box-shadow 0.25s;
+  }
+  .project-card-single.in-view { opacity: 1; transform: translateY(0); }
+  .project-card-single:hover { box-shadow: 0 20px 60px rgba(14,26,18,0.10); }
+
+  .project-thumb-single {
+    width: 100%; aspect-ratio: 16/9;
+    background: var(--bg-dark);
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+  }
+  .project-thumb-single::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image: repeating-linear-gradient(
+      -45deg, transparent, transparent 20px,
+      rgba(255,255,255,0.014) 20px, rgba(255,255,255,0.014) 21px
+    );
+  }
+  .coming-soon-content {
+    position: relative; z-index: 1;
+    display: flex; flex-direction: column; align-items: center; gap: 1.2rem;
+    text-align: center;
+  }
+  .cs-badge {
+    font-size: 0.62rem; letter-spacing: 0.38em; text-transform: uppercase;
+    color: var(--accent-bright); border: 1px solid rgba(58,143,92,0.35);
+    padding: 0.38rem 1rem; border-radius: 999px;
+    background: rgba(58,143,92,0.08);
+    animation: csFloat 3s ease-in-out infinite;
+  }
+  @keyframes csFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+  }
+  .cs-ring {
+    width: 80px; height: 80px; border-radius: 50%;
+    border: 1px solid rgba(248,248,244,0.1);
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+  }
+  .cs-ring::before {
+    content: ''; position: absolute; inset: -8px; border-radius: 50%;
+    border: 1px dashed rgba(58,143,92,0.3);
+    animation: ringRotate 12s linear infinite;
+  }
+  @keyframes ringRotate { to { transform: rotate(360deg); } }
+  .cs-ring-inner {
+    font-family: 'DM Serif Display', serif; font-style: italic;
+    font-size: 1.5rem; color: rgba(248,248,244,0.2);
+  }
+  .cs-title {
+    font-family: 'DM Serif Display', serif; font-style: italic;
+    font-size: 1.4rem; color: rgba(248,248,244,0.45);
+    letter-spacing: -0.01em;
+  }
+  .cs-sub {
+    font-size: 0.78rem; color: rgba(248,248,244,0.25);
+    letter-spacing: 0.14em; text-transform: uppercase;
+  }
+
+  .project-info-single { padding: 2rem 2.2rem; }
+  .project-info-single .label { margin-bottom: 1rem; }
+  .project-info-single h3 {
+    font-size: 1.35rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 0.6rem;
+  }
+  .project-info-single p { font-size: 0.9rem; color: var(--muted); line-height: 1.7; margin-bottom: 1.4rem; }
+  .project-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .project-tag {
+    font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase;
+    padding: 0.32rem 0.8rem; border-radius: 999px;
+    border: 1px solid var(--border-green); color: var(--accent);
+    background: var(--accent-light);
+  }
+
+  .more-coming {
+    margin-top: 5rem; padding-top: 4rem; border-top: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap;
+  }
+  .more-coming h3 {
+    font-family: 'DM Serif Display', serif; font-size: 1.8rem; font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+  .more-coming h3 em { font-style: italic; color: var(--accent); }
+  .more-coming p { font-size: 0.9rem; color: var(--muted); margin-top: 0.5rem; max-width: 38ch; line-height: 1.7; }
+</style>
+</head>
+<body>
+
+<div class="cursor-dot"></div>
+<div class="cursor-ring"></div>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <div class="nav-logo-mark">AK</div>
+    <span class="nav-logo-name">Artur K.</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="pricing.html">Pricing</a></li>
+    <li><a href="portfolio.html" class="active">Portfolio</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="contact.html" class="nav-hire">Hire Me</a>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <span class="label">Portfolio</span>
+    <h1>Work that<br><em>speaks for itself.</em></h1>
+    <p>A collection of hand-coded websites built for real businesses. More projects being added as they launch.</p>
+  </div>
+</div>
+
+<section class="portfolio-section">
+  <div class="portfolio-intro reveal">
+    <span class="label">Projects</span>
+    <h2>Building something<br><em>worth showing.</em></h2>
+    <p>Every project is custom from scratch — no templates, no page builders. Just clean, fast, handcrafted code.</p>
+  </div>
+
+  <div class="project-card-single reveal">
+    <div class="project-thumb-single">
+      <div class="coming-soon-content">
+        <div class="cs-badge">Coming Soon</div>
+        <div class="cs-ring">
+          <div class="cs-ring-inner">✦</div>
+        </div>
+        <div class="cs-title">First project</div>
+        <div class="cs-sub">In progress · 2026</div>
+      </div>
+    </div>
+    <div class="project-info-single">
+      <span class="label">Project 01</span>
+      <h3>First Client Website</h3>
+      <p>This project is currently in development. Check back soon — a full case study will be published here once the site goes live. Will include design decisions, tech stack, and results.</p>
+      <div class="project-tags">
+        <span class="project-tag">HTML & CSS</span>
+        <span class="project-tag">JavaScript</span>
+        <span class="project-tag">Responsive</span>
+        <span class="project-tag">SEO</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="more-coming reveal">
+    <div>
+      <h3>More work<br><em>on the way.</em></h3>
+      <p>Just getting started — new projects will be added here as they're completed. Want to be one of the first?</p>
+    </div>
+    <a href="contact.html" class="btn-primary">Work With Me</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Artur <span>K.</span></div>
+  <div class="footer-mid">Web Designer &amp; Developer · Canada</div>
+  <div class="footer-right">© 2026 Artur K. All rights reserved.</div>
+</footer>
+
+<script>
+  const dot = document.querySelector('.cursor-dot');
+  const ring = document.querySelector('.cursor-ring');
+  let mx = 0, my = 0, rx = 0, ry = 0;
+  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; dot.style.left = mx + 'px'; dot.style.top = my + 'px'; });
+  (function animRing() { rx += (mx - rx) * 0.14; ry += (my - ry) * 0.14; ring.style.left = rx + 'px'; ring.style.top = ry + 'px'; requestAnimationFrame(animRing); })();
+  document.querySelectorAll('a, button').forEach(el => {
+    el.addEventListener('mouseenter', () => { dot.classList.add('hover'); ring.classList.add('hover'); });
+    el.addEventListener('mouseleave', () => { dot.classList.remove('hover'); ring.classList.remove('hover'); });
+  });
+
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in-view'); obs.unobserve(e.target); }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal, .project-card-single').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

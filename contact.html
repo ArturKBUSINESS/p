@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Artur K | Web Designer & Developer</title>
+<meta name="description" content="Get in touch with Artur K to start your website project. Free consultation, fast response.">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" type="image/jpeg" href="artur.jpg">
+</head>
+<body>
+
+<div class="cursor-dot"></div>
+<div class="cursor-ring"></div>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <div class="nav-logo-mark">AK</div>
+    <span class="nav-logo-name">Artur K.</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="pricing.html">Pricing</a></li>
+    <li><a href="portfolio.html">Portfolio</a></li>
+    <li><a href="contact.html" class="active">Contact</a></li>
+  </ul>
+  <a href="contact.html" class="nav-hire">Hire Me</a>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <span class="label">Contact</span>
+    <h1>Let's build<br><em>something great.</em></h1>
+    <p>Tell me about your business and what you're looking for. I'll reply within a few hours with next steps and a free consultation call if you'd like.</p>
+  </div>
+</div>
+
+<section class="contact-section">
+  <div class="contact-left reveal">
+    <span class="label">Reach Out</span>
+    <h2>Ready to get<br><em>your site built?</em></h2>
+    <p>Whether you already know what you want or you're just starting to think about it — I'm happy to help. No pressure, no sales pitch. Just a straight conversation about what makes sense for your business.</p>
+
+    <div class="contact-details">
+      <div class="contact-detail">
+        <div class="detail-icon">✉</div>
+        <div class="detail-body">
+          <span class="detail-label">Email</span>
+          <span class="detail-value">arturkadykovr@gmail.com</span>
+        </div>
+      </div>
+      <div class="contact-detail">
+        <div class="detail-icon">✆</div>
+        <div class="detail-body">
+          <span class="detail-label">Phone</span>
+          <span class="detail-value">+1 (416) 829-8653</span>
+        </div>
+      </div>
+      <div class="contact-detail">
+        <div class="detail-icon">◷</div>
+        <div class="detail-body">
+          <span class="detail-label">Response time</span>
+          <span class="detail-value">Usually within a few hours</span>
+        </div>
+      </div>
+      <div class="contact-detail">
+        <div class="detail-icon">☎</div>
+        <div class="detail-body">
+          <span class="detail-label">Free consultation</span>
+          <span class="detail-value">Call available on request</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="contact-form-wrap reveal">
+    <div id="form-area">
+      <h3 class="form-title">Send me a message</h3>
+      <p class="form-sub">Fill out the form and I'll get back to you shortly.</p>
+
+      <!--
+        FORMSPREE SETUP INSTRUCTIONS:
+        1. Go to https://formspree.io and create a free account
+        2. Create a new form — it will give you a unique endpoint like:
+           https://formspree.io/f/YOUR_FORM_ID
+        3. Replace YOUR_FORM_ID in the action attribute below with your actual ID
+        4. Formspree will email you every submission directly to arturkadykovr@gmail.com
+      -->
+      <form
+        id="contact-form"
+        action="https://formspree.io/f/mreylaje"
+        method="POST"
+      >
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="fname">First Name *</label>
+            <input type="text" id="fname" name="first_name" placeholder="Jane" required>
+          </div>
+          <div class="form-group">
+            <label for="lname">Last Name</label>
+            <input type="text" id="lname" name="last_name" placeholder="Smith">
+          </div>
+          <div class="form-group full">
+            <label for="email">Email Address *</label>
+            <input type="email" id="email" name="email" placeholder="jane@yourbusiness.com" required>
+          </div>
+          <div class="form-group full">
+            <label for="business">Business Name</label>
+            <input type="text" id="business" name="business_name" placeholder="Smith Plumbing Co.">
+          </div>
+          <div class="form-group full">
+            <label for="package">Package of Interest</label>
+            <select id="package" name="package">
+              <option value="" disabled selected>Select a package…</option>
+              <option value="basic">Basic Website — $199 CAD</option>
+              <option value="standard">Standard Website — $499 CAD</option>
+              <option value="business">Business Website — $999 CAD</option>
+              <option value="unsure">Not sure yet</option>
+            </select>
+          </div>
+          <div class="form-group full">
+            <label for="message">Tell me about your project *</label>
+            <textarea id="message" name="message" placeholder="What kind of business do you run? What do you need the site to do? Any details help…" required></textarea>
+          </div>
+          <!-- Honeypot anti-spam -->
+          <input type="text" name="_gotcha" style="display:none">
+          <input type="hidden" name="_subject" value="New website enquiry from arturkadykov.com">
+        </div>
+        <button type="submit" class="form-submit" id="submit-btn">Send Message →</button>
+      </form>
+    </div>
+
+    <div class="form-success" id="form-success">
+      <div class="check">✦</div>
+      <h3>Message sent!</h3>
+      <p>Thanks for reaching out. I'll be in touch within a few hours.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Artur <span>K.</span></div>
+  <div class="footer-mid">Web Designer &amp; Developer · Canada</div>
+  <div class="footer-right">© 2026 Artur K. All rights reserved.</div>
+</footer>
+
+<script>
+  // Cursor
+  const dot = document.querySelector('.cursor-dot');
+  const ring = document.querySelector('.cursor-ring');
+  let mx = 0, my = 0, rx = 0, ry = 0;
+  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; dot.style.left = mx + 'px'; dot.style.top = my + 'px'; });
+  (function animRing() { rx += (mx - rx) * 0.14; ry += (my - ry) * 0.14; ring.style.left = rx + 'px'; ring.style.top = ry + 'px'; requestAnimationFrame(animRing); })();
+  document.querySelectorAll('a, button').forEach(el => {
+    el.addEventListener('mouseenter', () => { dot.classList.add('hover'); ring.classList.add('hover'); });
+    el.addEventListener('mouseleave', () => { dot.classList.remove('hover'); ring.classList.remove('hover'); });
+  });
+
+  // Scroll reveal
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in-view'); obs.unobserve(e.target); }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+  // Form submission with Formspree AJAX
+  const form = document.getElementById('contact-form');
+  const btn = document.getElementById('submit-btn');
+  const formArea = document.getElementById('form-area');
+  const successMsg = document.getElementById('form-success');
+
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (res.ok) {
+        formArea.style.display = 'none';
+        successMsg.style.display = 'block';
+      } else {
+        btn.textContent = 'Something went wrong — try emailing directly.';
+        btn.disabled = false;
+      }
+    } catch {
+      btn.textContent = 'Network error — please email me directly.';
+      btn.disabled = false;
+    }
+  });
+</script>
+</body>
+</html>
