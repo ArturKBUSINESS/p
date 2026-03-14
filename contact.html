@@ -39,7 +39,7 @@
 </div>
 
 <section class="contact-section">
-  <div class="contact-left reveal">
+  <div class="contact-left">
     <span class="label">Reach Out</span>
     <h2>Ready to get<br><em>your site built?</em></h2>
     <p>Whether you already know what you want or you're just starting to think about it — I'm happy to help. No pressure, no sales pitch. Just a straight conversation about what makes sense for your business.</p>
@@ -76,7 +76,7 @@
     </div>
   </div>
 
-  <div class="contact-form-wrap reveal">
+  <div class="contact-form-wrap">
     <div id="form-area">
       <h3 class="form-title">Send me a message</h3>
       <p class="form-sub">Fill out the form and I'll get back to you shortly.</p>
@@ -150,6 +150,9 @@
 <script>
   // Rebuild email to dodge Cloudflare obfuscation
   document.getElementById('em-display').textContent = 'arturkadykovr' + '@' + 'gmail.com';
+
+  // Force all reveal elements visible (bypass Cloudflare script delay)
+  document.querySelectorAll('.reveal').forEach(el => el.classList.add('in-view'));
 
   // Cursor
   const dot = document.querySelector('.cursor-dot');
