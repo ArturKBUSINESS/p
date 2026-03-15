@@ -27,7 +27,11 @@ body {
   color: var(--text);
   font-family: 'Outfit', system-ui, sans-serif;
   overflow-x: hidden;
+  cursor: auto;
 }
+
+a, button, input, select, textarea, label { cursor: auto; }
+a, button { cursor: pointer; }
 
 /* ── CURSOR (disabled) ───────────────────── */
 .cursor-dot, .cursor-ring { display: none; }
@@ -214,14 +218,12 @@ nav {
   padding: 1.1rem 0;
   overflow: hidden;
   width: 100%;
+  white-space: nowrap;
 }
 .skills-track {
-  display: flex;
-  flex-wrap: nowrap;
-  align-items: center;
-  gap: 3rem;
-  width: max-content;
-  animation: marquee 22s linear infinite;
+  display: inline-block;
+  white-space: nowrap;
+  animation: marquee 28s linear infinite;
   will-change: transform;
 }
 .skills-strip:hover .skills-track { animation-play-state: paused; }
@@ -230,12 +232,17 @@ nav {
   100% { transform: translateX(-50%); }
 }
 .skill-tag {
+  display: inline-block;
   font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase;
   color: rgba(248,248,244,0.75); white-space: nowrap; font-weight: 500;
-  display: flex; align-items: center; gap: 1rem;
-  flex-shrink: 0;
+  margin-right: 3rem;
 }
-.skill-tag::after { content: '·'; color: rgba(248,248,244,0.35); font-size: 1.2rem; }
+.skill-tag::after {
+  content: '·';
+  color: rgba(248,248,244,0.35);
+  font-size: 1.2rem;
+  margin-left: 3rem;
+}
 
 /* ── SERVICES SECTION ────────────────────── */
 .services {
