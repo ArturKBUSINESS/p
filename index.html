@@ -92,8 +92,6 @@
 </head>
 <body>
 
-<div class="cursor-dot"></div>
-<div class="cursor-ring"></div>
 
 <nav>
   <a href="index.html" class="nav-logo">
@@ -163,14 +161,24 @@
 </section>
 
 <div class="skills-strip">
-  <span class="skill-tag">HTML &amp; CSS</span>
-  <span class="skill-tag">JavaScript</span>
-  <span class="skill-tag">UI Design</span>
-  <span class="skill-tag">Responsive Layouts</span>
-  <span class="skill-tag">SEO Basics</span>
-  <span class="skill-tag">Fast Delivery</span>
-  <span class="skill-tag">Branding</span>
-  <span class="skill-tag">Hand-Coded</span>
+  <div class="skills-track" aria-hidden="true">
+    <span class="skill-tag">HTML &amp; CSS</span>
+    <span class="skill-tag">JavaScript</span>
+    <span class="skill-tag">UI Design</span>
+    <span class="skill-tag">Responsive Layouts</span>
+    <span class="skill-tag">SEO Basics</span>
+    <span class="skill-tag">Fast Delivery</span>
+    <span class="skill-tag">Branding</span>
+    <span class="skill-tag">Hand-Coded</span>
+    <span class="skill-tag">HTML &amp; CSS</span>
+    <span class="skill-tag">JavaScript</span>
+    <span class="skill-tag">UI Design</span>
+    <span class="skill-tag">Responsive Layouts</span>
+    <span class="skill-tag">SEO Basics</span>
+    <span class="skill-tag">Fast Delivery</span>
+    <span class="skill-tag">Branding</span>
+    <span class="skill-tag">Hand-Coded</span>
+  </div>
 </div>
 
 <section class="services">
@@ -221,17 +229,7 @@
   <div class="footer-right">© 2026 Artur K. All rights reserved.</div>
 </footer>
 
-<script>
-  // Cursor
-  const dot = document.querySelector('.cursor-dot');
-  const ring = document.querySelector('.cursor-ring');
-  let mx = 0, my = 0, rx = 0, ry = 0;
-  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; dot.style.left = mx + 'px'; dot.style.top = my + 'px'; });
-  (function animRing() { rx += (mx - rx) * 0.14; ry += (my - ry) * 0.14; ring.style.left = rx + 'px'; ring.style.top = ry + 'px'; requestAnimationFrame(animRing); })();
-  document.querySelectorAll('a, button').forEach(el => {
-    el.addEventListener('mouseenter', () => { dot.classList.add('hover'); ring.classList.add('hover'); });
-    el.addEventListener('mouseleave', () => { dot.classList.remove('hover'); ring.classList.remove('hover'); });
-  });
+<script>);
 
   // Scroll reveal
   const obs = new IntersectionObserver(entries => {
