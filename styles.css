@@ -94,8 +94,7 @@ nav {
 
 /* ── HERO ────────────────────────────────── */
 .hero {
-  height: 100vh;
-  min-height: 620px;
+  min-height: 100vh;
   display: grid; grid-template-columns: 1fr 1fr;
   position: relative; overflow: hidden;
 }
@@ -104,6 +103,7 @@ nav {
   padding: 10rem 5rem 5rem;
   display: flex; flex-direction: column; justify-content: space-between;
   position: relative; overflow: hidden;
+  min-height: 100vh;
 }
 .hero-left::before {
   content: '';
@@ -213,22 +213,27 @@ nav {
   background: var(--accent);
   padding: 1.1rem 0;
   overflow: hidden;
-  white-space: nowrap;
+  width: 100%;
 }
 .skills-track {
-  display: inline-flex; align-items: center; gap: 3rem;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 3rem;
+  width: max-content;
   animation: marquee 22s linear infinite;
   will-change: transform;
 }
 .skills-strip:hover .skills-track { animation-play-state: paused; }
 @keyframes marquee {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 .skill-tag {
   font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase;
   color: rgba(248,248,244,0.75); white-space: nowrap; font-weight: 500;
-  display: inline-flex; align-items: center; gap: 1rem;
+  display: flex; align-items: center; gap: 1rem;
+  flex-shrink: 0;
 }
 .skill-tag::after { content: '·'; color: rgba(248,248,244,0.35); font-size: 1.2rem; }
 
@@ -651,7 +656,8 @@ footer {
 /* ── RESPONSIVE ──────────────────────────── */
 @media (max-width: 1024px) {
   .hero { grid-template-columns: 1fr; }
-  .hero-right { min-height: 50vh; }
+  .hero-left { min-height: auto; }
+  .hero-right { min-height: auto; }
   .services { grid-template-columns: 1fr; gap: 3rem; }
   .services-left { position: static; }
   .pricing-grid { grid-template-columns: 1fr; border: none; gap: 1rem; }
@@ -669,8 +675,8 @@ footer {
   .mobile-nav-drawer { display: block; }
 
   /* Hero */
-  .hero { grid-template-columns: 1fr; min-height: auto; }
-  .hero-left { padding: 7.5rem 1.4rem 2.5rem; }
+  .hero { grid-template-columns: 1fr; min-height: auto; height: auto; }
+  .hero-left { padding: 7.5rem 1.4rem 2.5rem; min-height: auto; }
   .hero-right { padding: 2.5rem 1.4rem 3rem; border-left: none; border-top: 1px solid var(--border); min-height: auto; }
   .hero-title { font-size: clamp(2.8rem, 11vw, 4rem); }
   .hero-desc { font-size: 0.95rem; max-width: 100%; }
@@ -680,7 +686,7 @@ footer {
   .h-stat-n { font-size: 1.7rem; }
 
   /* Skills strip */
-  .skills-strip { padding: 1rem 1.4rem; gap: 1.8rem; overflow-x: auto; }
+  .skills-strip { padding: 0.9rem 0; }
 
   /* Services */
   .services { padding: 3.5rem 1.4rem; gap: 2.5rem; }
@@ -690,7 +696,7 @@ footer {
   .service-price { font-size: 0.75rem; }
 
   /* Pages */
-  .page-hero { padding: 7.5rem 1.4rem 2.8rem; min-height: auto; }
+  .page-hero { padding: 7.5rem 1.4rem 2.8rem; min-height: auto; height: auto; }
   .page-hero h1 { font-size: clamp(2.2rem, 8vw, 3.5rem); }
 
   /* Pricing */
