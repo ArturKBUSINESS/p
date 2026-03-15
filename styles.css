@@ -111,7 +111,8 @@ nav {
 
 /* ── HERO ────────────────────────────────── */
 .hero {
-  min-height: 100vh;
+  height: 100vh;
+  min-height: 620px;
   display: grid; grid-template-columns: 1fr 1fr;
   position: relative; overflow: hidden;
 }
@@ -563,13 +564,18 @@ footer {
   padding: 3rem 4rem;
   display: flex; justify-content: space-between; align-items: center;
   border-top: 1px solid rgba(248,248,244,0.06);
+  position: relative;
 }
 .footer-logo {
   font-family: 'DM Serif Display', serif; font-style: italic;
   font-size: 1.4rem; color: var(--text-inv); letter-spacing: -0.01em;
 }
 .footer-logo span { color: var(--accent-bright); }
-.footer-mid { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(248,248,244,0.3); }
+.footer-mid {
+  font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: rgba(248,248,244,0.3);
+  position: absolute; left: 50%; transform: translateX(-50%);
+}
 .footer-right { font-size: 0.72rem; color: rgba(248,248,244,0.3); }
 
 /* ── ANIMATIONS ──────────────────────────── */
@@ -584,7 +590,7 @@ footer {
 
 /* ── HAMBURGER MENU ──────────────────────── */
 .nav-hamburger {
-  display: none;
+  display: none !important;
   flex-direction: column; justify-content: center; align-items: center;
   gap: 5px;
   width: 40px; height: 40px;
@@ -613,11 +619,17 @@ footer {
   backdrop-filter: blur(24px) saturate(160%);
   border-bottom: 1px solid var(--border);
   z-index: 199;
-  padding: 0;
   max-height: 0; overflow: hidden;
-  transition: max-height 0.38s cubic-bezier(0.4,0,0.2,1);
+  visibility: hidden;
+  pointer-events: none;
+  transition: max-height 0.35s cubic-bezier(0.4,0,0.2,1), visibility 0s linear 0.35s;
 }
-.mobile-nav-drawer.open { max-height: 400px; }
+.mobile-nav-drawer.open {
+  max-height: 420px;
+  visibility: visible;
+  pointer-events: auto;
+  transition: max-height 0.38s cubic-bezier(0.4,0,0.2,1), visibility 0s linear 0s;
+}
 .mobile-nav-list {
   list-style: none;
   padding: 1rem 1.5rem;
@@ -661,7 +673,7 @@ footer {
   nav { padding: 0 1.2rem; }
   .nav-links { display: none; }
   .nav-hire { display: none; }
-  .nav-hamburger { display: flex; }
+  .nav-hamburger { display: flex !important; }
   .mobile-nav-drawer { display: block; }
 
   /* Hero */
@@ -710,6 +722,7 @@ footer {
   /* Footer */
   footer { padding: 2rem 1.4rem; flex-direction: column; gap: 0.8rem; text-align: center; }
   .footer-logo { font-size: 1.2rem; }
+  .footer-mid { position: static; transform: none; }
 }
 
 @media (max-width: 480px) {
