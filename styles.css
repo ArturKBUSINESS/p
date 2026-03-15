@@ -27,27 +27,10 @@ body {
   color: var(--text);
   font-family: 'Outfit', system-ui, sans-serif;
   overflow-x: hidden;
-  cursor: none;
 }
 
-/* ── CURSOR ──────────────────────────────── */
-.cursor-dot {
-  position: fixed; width: 8px; height: 8px;
-  background: var(--accent); border-radius: 50%;
-  pointer-events: none; z-index: 9999;
-  transform: translate(-50%,-50%);
-  transition: transform 0.08s, width 0.2s, height 0.2s, background 0.2s;
-}
-.cursor-ring {
-  position: fixed; width: 32px; height: 32px;
-  border: 1.5px solid var(--accent); border-radius: 50%;
-  pointer-events: none; z-index: 9998;
-  transform: translate(-50%,-50%);
-  transition: transform 0.18s ease, width 0.22s, height 0.22s, opacity 0.2s;
-  opacity: 0.5;
-}
-.cursor-dot.hover { width: 0; height: 0; }
-.cursor-ring.hover { width: 48px; height: 48px; opacity: 0.8; background: rgba(28,74,46,0.06); }
+/* ── CURSOR (disabled) ───────────────────── */
+.cursor-dot, .cursor-ring { display: none; }
 
 /* ── NAV ─────────────────────────────────── */
 nav {
@@ -228,17 +211,26 @@ nav {
 /* ── SKILLS STRIP ────────────────────────── */
 .skills-strip {
   background: var(--accent);
-  padding: 1.1rem 4rem;
-  display: flex; align-items: center; gap: 3rem;
+  padding: 1.1rem 0;
   overflow: hidden;
+  white-space: nowrap;
+}
+.skills-track {
+  display: inline-flex; align-items: center; gap: 3rem;
+  animation: marquee 22s linear infinite;
+  will-change: transform;
+}
+.skills-strip:hover .skills-track { animation-play-state: paused; }
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
 }
 .skill-tag {
   font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase;
   color: rgba(248,248,244,0.75); white-space: nowrap; font-weight: 500;
-  display: flex; align-items: center; gap: 1rem;
+  display: inline-flex; align-items: center; gap: 1rem;
 }
 .skill-tag::after { content: '·'; color: rgba(248,248,244,0.35); font-size: 1.2rem; }
-.skill-tag:last-child::after { display: none; }
 
 /* ── SERVICES SECTION ────────────────────── */
 .services {
@@ -547,7 +539,7 @@ nav {
   padding: 1rem 2rem; border: none; border-radius: var(--radius);
   font-family: 'Outfit', sans-serif;
   font-size: 0.78rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase;
-  cursor: none; transition: background 0.2s, transform 0.15s;
+  cursor: pointer; transition: background 0.2s, transform 0.15s;
 }
 .form-submit:hover { background: var(--accent-mid); transform: translateY(-1px); }
 
@@ -726,9 +718,6 @@ footer {
 }
 
 @media (max-width: 480px) {
-  .cursor-dot, .cursor-ring { display: none; }
-  body { cursor: default; }
-
   nav { padding: 0 1rem; }
   .nav-logo-name { font-size: 0.8rem; }
 
