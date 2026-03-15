@@ -146,6 +146,20 @@
   }
   .project-live-link:hover { color: var(--accent-mid); border-color: var(--accent-mid); }
 
+  /* Side-by-side project cards */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 0;
+  }
+  .projects-grid .project-card-single {
+    max-width: none;
+  }
+  @media (max-width: 900px) {
+    .projects-grid { grid-template-columns: 1fr; }
+  }
+
   .more-coming {
     margin-top: 5rem; padding-top: 4rem; border-top: 1px solid var(--border);
     display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap;
@@ -203,6 +217,7 @@
     <p>Every project is custom from scratch — no templates, no page builders. Just clean, fast, handcrafted code.</p>
   </div>
 
+  <div class="projects-grid">
   <div class="project-card-single reveal">
     <a href="https://hakkadynasty.netlify.app" target="_blank" rel="noopener" class="project-thumb-single project-thumb-live" aria-label="View Hakka Dynasty site">
       <div class="project-thumb-overlay">
@@ -252,7 +267,9 @@
     </div>
   </div>
 
-  <div class="more-coming reveal">
+  </div>
+
+    <div class="more-coming reveal">
     <div>
       <h3>More work<br><em>on the way.</em></h3>
       <p>Just getting started — new projects will be added here as they're completed. Want to be one of the first?</p>
@@ -294,13 +311,11 @@
     hamburger.addEventListener('click', () => {
       const open = drawer.classList.toggle('open');
       hamburger.classList.toggle('open', open);
-      document.body.style.overflow = open ? 'hidden' : '';
     });
     drawer.querySelectorAll('a').forEach(a => {
       a.addEventListener('click', () => {
         drawer.classList.remove('open');
         hamburger.classList.remove('open');
-        document.body.style.overflow = '';
       });
     });
   }
