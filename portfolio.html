@@ -24,7 +24,6 @@
   .project-card-single {
     border: 1px solid var(--border); border-radius: var(--radius-lg);
     overflow: hidden; background: #fff;
-    max-width: 680px;
     opacity: 0; transform: translateY(16px);
     transition: opacity 0.65s ease, transform 0.65s ease, box-shadow 0.25s;
   }
@@ -151,12 +150,15 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1.5rem;
+    align-items: start;
     margin-bottom: 0;
+    width: 100%;
   }
   .projects-grid .project-card-single {
     max-width: none;
+    width: 100%;
   }
-  @media (max-width: 900px) {
+  @media (max-width: 860px) {
     .projects-grid { grid-template-columns: 1fr; }
   }
 
