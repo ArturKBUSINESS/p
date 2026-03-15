@@ -216,13 +216,11 @@
     hamburger.addEventListener('click', () => {
       const open = drawer.classList.toggle('open');
       hamburger.classList.toggle('open', open);
-      document.body.style.overflow = open ? 'hidden' : '';
     });
     drawer.querySelectorAll('a').forEach(a => {
       a.addEventListener('click', () => {
         drawer.classList.remove('open');
         hamburger.classList.remove('open');
-        document.body.style.overflow = '';
       });
     });
   }
