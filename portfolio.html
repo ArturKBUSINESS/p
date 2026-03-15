@@ -101,6 +101,77 @@
     background: var(--accent-light);
   }
 
+  /* Hakka thumb */
+  .project-thumb-live {
+    display: block; text-decoration: none; position: relative;
+    background: linear-gradient(135deg, #1a0a00 0%, #3d1500 40%, #1a0a00 100%);
+  }
+  .project-thumb-overlay {
+    position: absolute; inset: 0; z-index: 3;
+    background: rgba(0,0,0,0.55);
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; transition: opacity 0.3s ease;
+  }
+  .project-thumb-live:hover .project-thumb-overlay { opacity: 1; }
+  .thumb-view-label {
+    font-size: 0.85rem; font-weight: 600; letter-spacing: 0.18em;
+    text-transform: uppercase; color: #fff;
+    border: 1px solid rgba(255,255,255,0.5); padding: 0.7rem 1.6rem;
+    border-radius: 3px;
+  }
+  .hakka-thumb-content {
+    position: relative; z-index: 2;
+    display: flex; flex-direction: column; align-items: center; gap: 1rem;
+    text-align: center;
+  }
+  .hakka-badge {
+    font-size: 0.62rem; letter-spacing: 0.38em; text-transform: uppercase;
+    color: #e8a040; border: 1px solid rgba(232,160,64,0.4);
+    padding: 0.38rem 1rem; border-radius: 999px;
+    background: rgba(232,160,64,0.1);
+  }
+  .hakka-logo-ring {
+    width: 80px; height: 80px; border-radius: 50%;
+    border: 1.5px solid rgba(232,160,64,0.5);
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(232,160,64,0.08);
+    box-shadow: 0 0 30px rgba(232,160,64,0.15);
+  }
+  .hakka-logo-text {
+    font-family: 'DM Serif Display', serif; font-style: italic;
+    font-size: 1.6rem; color: #e8a040; letter-spacing: -0.02em;
+  }
+  .hakka-name {
+    font-family: 'DM Serif Display', serif; font-size: 1.5rem;
+    color: rgba(248,240,230,0.9); letter-spacing: -0.01em;
+  }
+  .hakka-location {
+    font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase;
+    color: rgba(248,240,230,0.35);
+  }
+
+  /* Project header row */
+  .project-header-row {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem;
+  }
+  .project-header-row .label { margin-bottom: 0; }
+  .project-redesign-badge {
+    font-size: 0.6rem; letter-spacing: 0.22em; text-transform: uppercase;
+    padding: 0.28rem 0.75rem; border-radius: 999px;
+    border: 1px solid rgba(180,120,0,0.3); color: #8a6000;
+    background: rgba(232,160,64,0.08);
+  }
+  .project-live-link {
+    display: inline-block; margin-top: 1.4rem;
+    font-size: 0.74rem; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--accent);
+    text-decoration: none; border-bottom: 1px solid var(--border-green);
+    padding-bottom: 0.15rem;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .project-live-link:hover { color: var(--accent-mid); border-color: var(--accent-mid); }
+
   .more-coming {
     margin-top: 5rem; padding-top: 4rem; border-top: 1px solid var(--border);
     display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap;
@@ -130,7 +201,18 @@
     <li><a href="contact.html">Contact</a></li>
   </ul>
   <a href="contact.html" class="nav-hire">Hire Me</a>
+
+  <button class="nav-hamburger" id="navHamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
 </nav>
+<div class="mobile-nav-drawer" id="mobileNavDrawer">
+  <ul class="mobile-nav-list">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="pricing.html">Pricing</a></li>
+    <li><a href="portfolio.html" class="active">Portfolio</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="contact.html" class="mobile-nav-hire">Hire Me</a>
+</div>
 
 <div class="page-hero">
   <div class="page-hero-inner">
@@ -148,20 +230,54 @@
   </div>
 
   <div class="project-card-single reveal">
+    <a href="https://hakkadynasty.netlify.app" target="_blank" rel="noopener" class="project-thumb-single project-thumb-live" aria-label="View Hakka Dynasty site">
+      <div class="project-thumb-overlay">
+        <span class="thumb-view-label">View Live ↗</span>
+      </div>
+      <div class="hakka-thumb-content">
+        <div class="hakka-badge">Indo-Chinese Cuisine</div>
+        <div class="hakka-logo-block">
+          <div class="hakka-logo-ring">
+            <span class="hakka-logo-text">HD</span>
+          </div>
+        </div>
+        <div class="hakka-name">Hakka Dynasty</div>
+        <div class="hakka-location">Etobicoke · Toronto</div>
+      </div>
+    </a>
+    <div class="project-info-single">
+      <div class="project-header-row">
+        <span class="label">Project 01</span>
+        <span class="project-redesign-badge">Redesign Concept</span>
+      </div>
+      <h3>Hakka Dynasty</h3>
+      <p>A concept redesign for Hakka Dynasty, an Indo-Chinese Hakka restaurant based in Etobicoke, Toronto. Built from scratch with a focus on warm visuals, fast load times, and a clean menu experience. <em>Not an official client project — created for portfolio purposes.</em></p>
+      <div class="project-tags">
+        <span class="project-tag">HTML & CSS</span>
+        <span class="project-tag">JavaScript</span>
+        <span class="project-tag">Responsive</span>
+        <span class="project-tag">UI Design</span>
+        <span class="project-tag">Redesign</span>
+      </div>
+      <a href="https://hakkadynasty.netlify.app" target="_blank" rel="noopener" class="project-live-link">View Live Site ↗</a>
+    </div>
+  </div>
+
+  <div class="project-card-single reveal">
     <div class="project-thumb-single">
       <div class="coming-soon-content">
         <div class="cs-badge">Coming Soon</div>
         <div class="cs-ring">
           <div class="cs-ring-inner">✦</div>
         </div>
-        <div class="cs-title">First project</div>
+        <div class="cs-title">Next project</div>
         <div class="cs-sub">In progress · 2026</div>
       </div>
     </div>
     <div class="project-info-single">
-      <span class="label">Project 01</span>
-      <h3>First Client Website</h3>
-      <p>This project is currently in development. Check back soon — a full case study will be published here once the site goes live. Will include design decisions, tech stack, and results.</p>
+      <span class="label">Project 02</span>
+      <h3>Next Client Website</h3>
+      <p>This project is currently in development. Check back soon — a full case study will be published here once the site goes live.</p>
       <div class="project-tags">
         <span class="project-tag">HTML & CSS</span>
         <span class="project-tag">JavaScript</span>
@@ -204,5 +320,24 @@
   }, { threshold: 0.1 });
   document.querySelectorAll('.reveal, .project-card-single').forEach(el => obs.observe(el));
 </script>
+
+  // Hamburger menu
+  const hamburger = document.getElementById('navHamburger');
+  const drawer = document.getElementById('mobileNavDrawer');
+  if (hamburger && drawer) {
+    hamburger.addEventListener('click', () => {
+      const open = drawer.classList.toggle('open');
+      hamburger.classList.toggle('open', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    });
+    drawer.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        drawer.classList.remove('open');
+        hamburger.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    });
+  }
+
 </body>
 </html>
